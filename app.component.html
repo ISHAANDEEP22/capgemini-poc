@@ -1,0 +1,18 @@
+<div class="container">
+
+
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="qty" class="form-control mr-15">
+    <button type="button" (click)="addQuantity()" class="btn btn-primary">+</button>
+
+    <div *ngFor="let quantity of quantities().controls; let i=index" [formGroupName]="i" class="display-flex">
+      <input type="text" formControlName="qty" class="form-control mr-15">
+      <button type="button" (click)="addQuantity()" class="btn btn-primary mr-15">+</button>
+      <button (click)="removeQuantity(i)" class="btn btn-danger">-</button>
+    </div>
+
+
+  </form>
+
+  <br />
+</div>
